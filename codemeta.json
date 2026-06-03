@@ -12,7 +12,9 @@
     {
       "@type": "Person",
       "givenName": "Benoît",
-      "familyName": "Prieur"
+      "familyName": "Prieur",
+      "alternateName": "thepriben",
+      "url": "https://github.com/thepriben"
     },
     {
       "@type": "Person",

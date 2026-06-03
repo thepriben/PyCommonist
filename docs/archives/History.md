@@ -1,4 +1,12 @@
-* juin 2026 : v1.1 — refonte majeure
+# Historique PyCommonist
+
+Dépôt GitHub : [thepriben/PyCommonist](https://github.com/thepriben/PyCommonist) — maintenu par **[@thepriben](https://github.com/thepriben)** (Benoît Prieur).
+
+Les entrées ci-dessous utilisent les identifiants **Wikimedia Commons** (`User:…`) tels qu’au moment des contributions ; Romain Behar reste crédité sous `User:Romainbar`.
+
+---
+
+* juin 2026 : [@thepriben](https://github.com/thepriben) — v1.1, refonte majeure
   * package PyPI `pycommonist` (structure `src/`, `pyproject.toml`)
   * fenêtre principale `QMainWindow` avec identifiants centralisés
   * sessions d'import en sous-fenêtres MDI (`QMdiArea`)
@@ -8,11 +16,11 @@
   * archive source **`pycommonist-v1.1.zip`** pour HAL Software Archive (même convention que `pycommonist-v1.0`)
   * documents d’archive dans `docs/archives/` (History, notes de release, checklist HAL)
   * `codemeta.json` pour métadonnées HAL / CodeMeta
-* 4 septembre 2024 : User:Benoît Prieur
+* 4 septembre 2024 : [@thepriben](https://github.com/thepriben) / User:Benoît Prieur
   * mise à jour de `requirements.txt` (PyQt6 et dépendances)
-* 20 avril 2021 : User:Benoît Prieur
+* 20 avril 2021 : [@thepriben](https://github.com/thepriben) / User:Benoît Prieur
   * ajout d'un fichier externe de configuration (largement inspiré par le code de User:Deansfa, merci à lui).
-* 2 mai 2021 : User:Benoît Prieur
+* 2 mai 2021 : [@thepriben](https://github.com/thepriben) / User:Benoît Prieur
   * ajout d'une auto-suggestion des catégories (idée de User:Romainbar, merci à lui).
 * 12 mai 2021 : User:Romainbar
   * support des adresses copiées depuis OSM
@@ -36,11 +44,11 @@
   * affichage du nombre d'images traitées pendant l'upload
 * 10 mai 2022 : User:Romainbar
   * affichage du nombre d'images prêtes à être importées dans le bouton d'import
-* 28 mai 2022 : User:Benoît Prieur
+* 28 mai 2022 : [@thepriben](https://github.com/thepriben) / User:Benoît Prieur
   * reprise de la mise en forme selon PEP8 (pas parfait encore, pylint sous VS Code)
   * ajout d'une version de PyCommonist
   * augmentation de la largeur de l'auto-complétion
-* 29 mai 2022 : User:Benoît Prieur
+* 29 mai 2022 : [@thepriben](https://github.com/thepriben) / User:Benoît Prieur
   * suite PEP8
   * contrôle de la non-utilisation du nom de fichier (localement et distant, sur Wikimedia Commons)
 * 29 mai 2022 : User:Romainbar
@@ -63,6 +71,6 @@
   * affichage de la taille de l'image en mégabytes (après la date)
 * 16 février 2023 : User:Romainbar
   * menu contextuel d'une image: option pour éditer dans Gimp
-* Juillet 2023 : User:Benoît Prieur
+* Juillet 2023 : [@thepriben](https://github.com/thepriben) / User:Benoît Prieur
   * migration de PyQt5 à PyQt6
 
