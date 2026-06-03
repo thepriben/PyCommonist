@@ -76,8 +76,6 @@ src/pycommonist/
 
 Detailed contribution history (French) is kept in **[docs/archives/History.md](docs/archives/History.md)** — please preserve archive markdown under `docs/archives/` when evolving the project.
 
-Authors: see **[AUTHORS](AUTHORS)** (Benoît Prieur, Romain Behar, and contributors listed in History.md).
-
 ---
 
 ## Releases and HAL Software Archive
