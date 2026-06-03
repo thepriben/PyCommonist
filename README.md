@@ -9,17 +9,19 @@ Version **1.1** : fenêtre principale, sessions MDI, modèles `{{Information}}` 
 ```bash
 git clone https://github.com/thepriben/PyCommonist.git
 cd PyCommonist
-python3 -m venv .venv
+./run.sh
+```
+
+(`run.sh` crée un venv en **Python 3.12** si besoin — PyQt6 est instable avec 3.14 sur macOS.)
+
+Ou manuellement :
+
+```bash
+/opt/homebrew/bin/python3.12 -m venv .venv   # ou python3.11
 source .venv/bin/activate
 pip install -r requirements.txt
 pip install -e .
-```
-
-Lancement :
-
-```bash
 python main.py
-# ou : ./run.sh
 ```
 
 PyPI : pas encore publié ; l’installation via `pip install pycommonist` sera documentée ici le moment venu.
