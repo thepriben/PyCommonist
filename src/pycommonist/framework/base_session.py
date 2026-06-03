@@ -25,6 +25,7 @@ from PyQt6.QtWidgets import (
     QPlainTextEdit,
     QPushButton,
     QScrollArea,
+    QSizePolicy,
     QSplitter,
     QStyle,
     QTreeView,
@@ -111,6 +112,10 @@ class BaseImportSession(QWidget):
         self.left_top_frame = QFrame()
         self.left_top_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.right_widget = QWidget()
+        self.right_widget.setMinimumWidth(480)
+        self.right_widget.setSizePolicy(
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding
+        )
         self.layout_right = QVBoxLayout()
         self.right_widget.setLayout(self.layout_right)
         self._build_right_toolbar()
@@ -150,11 +155,20 @@ class BaseImportSession(QWidget):
         self.splitter_central = QSplitter(Qt.Orientation.Horizontal)
         self.splitter_central.addWidget(self.splitter_left)
         self.splitter_central.addWidget(self.right_widget)
+        self.splitter_central.setStretchFactor(0, 1)
+        self.splitter_central.setStretchFactor(1, 3)
         self.splitter_central.setSizes([HORIZONTAL_LEFT_SIZE, HORIZONTAL_RIGHT_SIZE])
+        self.splitter_central.setCollapsible(1, False)
 
         root = QVBoxLayout()
         root.addWidget(self.splitter_central)
         self.setLayout(root)
+        self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        total = max(self.splitter_central.width(), 800)
+        self.splitter_central.setSizes([int(total * 0.32), int(total * 0.68)])
 
     def _build_left_top_frame(self):
         self.layout_left_top = QFormLayout()

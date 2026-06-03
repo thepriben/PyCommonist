@@ -39,6 +39,7 @@ class MainWindow(QMainWindow):
         self._build_menus()
 
         self.mdi_area = QMdiArea()
+        self.mdi_area.setViewMode(QMdiArea.ViewMode.TabbedView)
         self.mdi_area.setHorizontalScrollBarPolicy(
             Qt.ScrollBarPolicy.ScrollBarAsNeeded
         )

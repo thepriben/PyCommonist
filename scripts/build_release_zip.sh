@@ -17,6 +17,7 @@ rm -f "$ZIP_PATH"
 zip -r "$ZIP_PATH" . \
   -x '*.git*' \
   -x '.venv/*' \
+  -x '.venv-test/*' \
   -x 'dist/*' \
   -x 'releases/*.zip' \
   -x '*__pycache__*' \
