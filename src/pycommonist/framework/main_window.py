@@ -36,8 +36,6 @@ class MainWindow(QMainWindow):
         )
         self.resize(1200, 800)
 
-        self._build_menus()
-
         self.mdi_area = QMdiArea()
         self.mdi_area.setViewMode(QMdiArea.ViewMode.TabbedView)
         self.mdi_area.setHorizontalScrollBarPolicy(
@@ -46,6 +44,8 @@ class MainWindow(QMainWindow):
         self.mdi_area.setVerticalScrollBarPolicy(
             Qt.ScrollBarPolicy.ScrollBarAsNeeded
         )
+
+        self._build_menus()
 
         central = QWidget()
         central_layout = QVBoxLayout(central)
