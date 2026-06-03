@@ -10,10 +10,10 @@ from PyQt6.QtWidgets import (
     QLineEdit,
     QMainWindow,
     QMdiArea,
-    QMenu,
     QMenuBar,
     QPushButton,
     QStatusBar,
+    QVBoxLayout,
     QWidget,
 )
 
@@ -36,7 +36,6 @@ class MainWindow(QMainWindow):
         )
         self.resize(1200, 800)
 
-        self._build_auth_panel()
         self._build_menus()
 
         self.mdi_area = QMdiArea()
@@ -46,7 +45,13 @@ class MainWindow(QMainWindow):
         self.mdi_area.setVerticalScrollBarPolicy(
             Qt.ScrollBarPolicy.ScrollBarAsNeeded
         )
-        self.setCentralWidget(self.mdi_area)
+
+        central = QWidget()
+        central_layout = QVBoxLayout(central)
+        central_layout.setContentsMargins(4, 4, 4, 4)
+        central_layout.addWidget(self._build_auth_panel())
+        central_layout.addWidget(self.mdi_area, stretch=1)
+        self.setCentralWidget(central)
 
         self.status_label = QLabel()
         self.status_label.setStyleSheet(STYLE_STATUSBAR)
@@ -79,7 +84,7 @@ class MainWindow(QMainWindow):
         row.addWidget(help_btn)
         row.addStretch()
         auth_widget.setLayout(row)
-        self.setMenuWidget(auth_widget)
+        return auth_widget
 
     def _build_menus(self):
         bar = QMenuBar()

@@ -136,3 +136,4 @@ pycommonist-*.zip
 
 # Local virtualenv
 .venv/
+.venv-test/

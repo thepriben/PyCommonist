@@ -24,5 +24,5 @@ def create_app(argv=None):
 def run(argv=None):
     app = create_app(argv)
     window = MainWindow()
-    window.show()
+    window.showMaximized()
     return app.exec()

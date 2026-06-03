@@ -42,6 +42,9 @@ Homepage = "https://github.com/thepriben/PyCommonist"
 Repository = "https://github.com/thepriben/PyCommonist"
 History = "https://github.com/thepriben/PyCommonist/blob/main/docs/archives/History.md"
 
+[tool.setuptools.package-dir]
+"" = "src"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
