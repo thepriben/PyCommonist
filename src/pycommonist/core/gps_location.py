@@ -1,18 +1,15 @@
-'''
-    gps_location
-'''
+"""EXIF GPS extraction."""
+
 import traceback
 
 
 def _get_if_exist(data, key):
-    """ get_files """
     if key in data:
         return data[key]
     return None
 
 
 def convert_to_degress(value):
-    """ convert_to_degress """
     d = float(value.values[0].num) / float(value.values[0].den)
     m = float(value.values[1].num) / float(value.values[1].den)
     s = float(value.values[2].num) / float(value.values[2].den)
@@ -20,7 +17,6 @@ def convert_to_degress(value):
 
 
 def get_exif_location(exif_data):
-    """ get_exif_location """
     lat = None
     lon = None
     heading = 0
@@ -37,12 +33,12 @@ def get_exif_location(exif_data):
         lon = convert_to_degress(gps_longitude)
         if gps_longitude_ref.values[0] != 'E':
             lon = 0 - lon
-    if str(gps_direction_ref) == "T":  # Real North
+    if str(gps_direction_ref) == "T":
         try:
             tab = str(gps_direction).split('/')
             tab[0] = int(tab[0])
             tab[1] = int(tab[1])
-            heading = tab[0]/tab[1]
+            heading = tab[0] / tab[1]
         except ValueError:
             traceback.print_exc()
     return lat, lon, heading

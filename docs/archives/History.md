@@ -1,3 +1,15 @@
+* juin 2026 : v1.1 — refonte majeure
+  * package PyPI `pycommonist` (structure `src/`, `pyproject.toml`)
+  * fenêtre principale `QMainWindow` avec identifiants centralisés
+  * sessions d'import en sous-fenêtres MDI (`QMdiArea`)
+  * types de session intégrés : **Information (Description)** (`{{Information}}`) et **Artwork** (`{{Artwork}}`)
+  * mini-framework PyQt6 (`framework/`, `sessions/`, `core/wikitext/`)
+  * service d'upload refactoré (`UploadService`, builders wikitext injectés, logging)
+  * archive source **`pycommonist-v1.1.zip`** pour HAL Software Archive (même convention que `pycommonist-v1.0`)
+  * documents d’archive dans `docs/archives/` (History, notes de release, checklist HAL)
+  * `codemeta.json` pour métadonnées HAL / CodeMeta
+* 4 septembre 2024 : User:Benoît Prieur
+  * mise à jour de `requirements.txt` (PyQt6 et dépendances)
 * 20 avril 2021 : User:Benoît Prieur
   * ajout d'un fichier externe de configuration (largement inspiré par le code de User:Deansfa, merci à lui).
 * 2 mai 2021 : User:Benoît Prieur

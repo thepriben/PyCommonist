@@ -1,11 +1,11 @@
-certifi==2024.8.30
-charset-normalizer==3.3.2
-ExifRead==3.0.0
-idna==3.8
-PyQt6==6.7.1
-PyQt6-Qt6==6.7.2
-PyQt6_sip==13.8.0
-PyYAML==6.0.2
-requests==2.32.3
-Send2Trash==1.8.3
-urllib3==2.2.2
+# Runtime dependencies (also declared in pyproject.toml)
+PyQt6>=6.7.1
+requests>=2.32.0
+ExifRead>=3.0.0
+PyYAML>=6.0
+Send2Trash>=1.8.0
+
+# Development / release
+# pip install -e ".[dev]"  — see pyproject.toml optional deps
+build>=1.2.0
+twine>=5.0.0

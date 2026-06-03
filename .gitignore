@@ -130,3 +130,9 @@ dmypy.json
 /setup.py
 
 .idea/
+
+# Release archives (use GitHub Releases)
+pycommonist-*.zip
+
+# Local virtualenv
+.venv/

@@ -1,0 +1,28 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "PyCommonist",
+  "description": "Desktop application for batch-uploading images and media to Wikimedia Commons, inspired by Commonist. PyQt6, MDI import sessions, Information and Artwork wikitext templates.",
+  "version": "1.1.0",
+  "applicationCategory": "Multimedia",
+  "operatingSystem": "macOS, Linux, Windows",
+  "programmingLanguage": ["Python"],
+  "license": "https://spdx.org/licenses/MIT",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Benoît",
+      "familyName": "Prieur"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Romain",
+      "familyName": "Behar"
+    }
+  ],
+  "codeRepository": "https://github.com/thepriben/PyCommonist",
+  "downloadUrl": "https://github.com/thepriben/PyCommonist/releases",
+  "keywords": ["Wikimedia Commons", "batch upload", "PyQt6", "Commonist", "GLAM", "Artwork"],
+  "developmentStatus": "active",
+  "issueTracker": "https://github.com/thepriben/PyCommonist/issues"
+}

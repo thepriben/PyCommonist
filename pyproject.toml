@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycommonist"
+version = "1.1.0"
+description = "Batch upload images to Wikimedia Commons (PyQt6, inspired by Commonist)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Benoît Prieur" },
+    { name = "Romain Behar" },
+]
+keywords = ["wikimedia", "commons", "upload", "pyqt6", "batch"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = [
+    "PyQt6>=6.7.1",
+    "requests>=2.32.0",
+    "ExifRead>=3.0.0",
+    "PyYAML>=6.0",
+    "Send2Trash>=1.8.0",
+]
+
+[project.scripts]
+pycommonist = "pycommonist.__main__:main"
+
+[project.optional-dependencies]
+dev = ["build>=1.2.0", "twine>=5.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/thepriben/PyCommonist"
+Repository = "https://github.com/thepriben/PyCommonist"
+History = "https://github.com/thepriben/PyCommonist/blob/main/docs/archives/History.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pycommonist = ["resources/**/*"]
