@@ -1,7 +1,5 @@
 """Main window with auth panel, MDI upload sessions, and menus."""
 
-import webbrowser
-
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QFormLayout,
@@ -12,7 +10,6 @@ from PyQt6.QtWidgets import (
     QMdiArea,
     QMenu,
     QMenuBar,
-    QPushButton,
     QStackedWidget,
     QStatusBar,
     QVBoxLayout,
@@ -89,24 +86,12 @@ class MainWindow(QMainWindow):
         self.line_edit_user_name.setPlaceholderText("Nom d'utilisateur Commons")
 
         self.line_edit_password = QLineEdit()
-        self.line_edit_password.setObjectName("passwordField")
         self.line_edit_password.setFixedWidth(WIDTH_WIDGET)
         self.line_edit_password.setEchoMode(QLineEdit.EchoMode.Password)
         self.line_edit_password.setPlaceholderText("Mot de passe ou mot de passe de bot")
 
         layout.addRow("Identifiant :", self.line_edit_user_name)
         layout.addRow("Mot de passe :", self.line_edit_password)
-
-        help_btn = QPushButton("Aide Commons")
-        help_btn.clicked.connect(
-            lambda: webbrowser.open(
-                "https://commons.wikimedia.org/wiki/Commons:Commonist/fr"
-            )
-        )
-        row = QHBoxLayout()
-        row.addStretch()
-        row.addWidget(help_btn)
-        layout.addRow("", row)
         return auth_widget
 
     def _build_menus(self):

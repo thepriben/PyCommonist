@@ -25,14 +25,6 @@ QLineEdit, QPlainTextEdit {
     padding: 4px 8px;
     selection-background-color: #3b82f6;
 }
-QLineEdit#passwordField {
-    background-color: #18181b;
-    color: #fafafa;
-    border: 1px solid #3f3f46;
-}
-QLineEdit#passwordField:focus {
-    border: 1px solid #71717a;
-}
 QMdiArea {
     background-color: #e4e4e7;
     border: 1px solid #d4d4d8;
