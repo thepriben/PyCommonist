@@ -17,6 +17,4 @@ chmod +x scripts/build_release_zip.sh
 # → releases/pycommonist-v1.1.zip
 ```
 
-HAL requires **README**, **AUTHORS**, and **LICENSE** at the root of the archive (included automatically).
-
-See [docs/archives/HAL_v1.1.md](../docs/archives/HAL_v1.1.md) for deposit checklist.
+L’archive inclut **README**, **AUTHORS** et **LICENSE** à la racine.

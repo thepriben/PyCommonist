@@ -42,7 +42,7 @@ Configuration par défaut : [`src/pycommonist/resources/config/general.yaml`](sr
 | 1.0 | `pycommonist-v1.0.zip` | `pycommonist-v1.0` |
 | 1.1 | `pycommonist-v1.1.zip` | `pycommonist-v1.1` |
 
-Archives HAL : [`docs/archives/HAL_v1.1.md`](docs/archives/HAL_v1.1.md). Historique des contributions : [`docs/archives/History.md`](docs/archives/History.md).
+Historique des contributions : [`docs/archives/History.md`](docs/archives/History.md).
 
 ## Licence
 

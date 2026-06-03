@@ -45,5 +45,3 @@ twine upload dist/pycommonist-1.1.0*
 ./scripts/build_release_zip.sh 1.1
 # → releases/pycommonist-v1.1.zip
 ```
-
-Voir [HAL_v1.1.md](HAL_v1.1.md).

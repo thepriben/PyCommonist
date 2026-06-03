@@ -35,12 +35,14 @@ from PyQt6.QtWidgets import QApplication
 from pycommonist.core.constants import PYCOMMONIST_VERSION
 from pycommonist.core.resources import resource_path
 from pycommonist.framework.main_window import MainWindow
+from pycommonist.framework.styles import APP_STYLESHEET
 
 
 def create_app(argv=None):
     if argv is None:
         argv = sys.argv
     app = QApplication(argv)
+    app.setStyleSheet(APP_STYLESHEET)
     app.setApplicationName("PyCommonist")
     app.setApplicationVersion(PYCOMMONIST_VERSION)
     icon_path = resource_path("img", "Logo PyCommonist.svg")

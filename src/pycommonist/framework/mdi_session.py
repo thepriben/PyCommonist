@@ -12,6 +12,16 @@ SESSION_CLASSES = {
     SESSION_ARTWORK: ArtworkSession,
 }
 
+SESSION_MENU_LABELS = {
+    SESSION_INFORMATION: "Description — {{Information}}",
+    SESSION_ARTWORK: "Œuvre — {{Artwork}}",
+}
+
+SESSION_WINDOW_PREFIX = {
+    SESSION_INFORMATION: "Import · {{Information}}",
+    SESSION_ARTWORK: "Import · {{Artwork}}",
+}
+
 
 def create_session_window(main_window, session_type: str) -> QMdiSubWindow:
     session_cls = SESSION_CLASSES[session_type]
@@ -24,5 +34,6 @@ def create_session_window(main_window, session_type: str) -> QMdiSubWindow:
     sub.setWidget(session_widget)
     sub.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
     session_widget.mdi_sub_window = sub
+    session_widget.session_type = session_type
     session_widget.update_window_title()
     return sub

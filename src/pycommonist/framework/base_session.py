@@ -56,7 +56,6 @@ from pycommonist.core.constants import (
     RELOAD_BUTTON,
     SORT_BUTTON_BY_DATE,
     SORT_BUTTON_BY_NAME,
-    STYLE_IMPORT_BUTTON,
     STYLE_IMPORT_STATUS,
     VERTICAL_BOTTOM_SIZE,
     VERTICAL_TOP_SIZE,
@@ -180,11 +179,13 @@ class BaseImportSession(QWidget):
         import_layout = QHBoxLayout()
         import_widget.setLayout(import_layout)
         self.btn_import = QPushButton(IMPORT_BUTTON_NO_IMAGE)
+        self.btn_import.setObjectName("btnImport")
         self.btn_import.clicked.connect(self.on_click_import)
         import_layout.addWidget(self.btn_import)
         self.layout_left_top.addWidget(import_widget)
-        import_widget.setStyleSheet("border:1px solid #808080;")
-        self.btn_import.setStyleSheet(STYLE_IMPORT_BUTTON)
+        import_widget.setStyleSheet(
+            "border: 1px solid #d4d4d8; border-radius: 6px; padding: 4px;"
+        )
         self.left_top_frame.setLayout(self.layout_left_top)
 
     def _add_session_fields(self):
@@ -223,8 +224,16 @@ class BaseImportSession(QWidget):
         self.layout_right.addWidget(import_command_widget)
 
     def update_window_title(self):
-        folder = os.path.basename(self.current_directory_path) if self.current_directory_path else ""
-        title = f"{self.session_label}"
+        from pycommonist.framework.mdi_session import SESSION_WINDOW_PREFIX
+
+        folder = (
+            os.path.basename(self.current_directory_path)
+            if self.current_directory_path
+            else ""
+        )
+        prefix = SESSION_WINDOW_PREFIX.get(self.session_type, self.session_label)
+        index = getattr(self, "session_index", None)
+        title = f"{prefix} #{index}" if index else prefix
         if folder:
             title += f" — {folder}"
         if self.mdi_sub_window:
