@@ -86,8 +86,7 @@ PyCommonist is the subject of a magazine article (in French):
 
 > Benoît Prieur, *PyQt5 : développement d'une application de téléversement
 > d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
-> ([programmez.com](https://www.programmez.com/magazine/article/pyqt5-developpement-dune-application-de-televersement-dimages-vers-wikimedia-commons),
-> listed on [benoit-prieur.fr](https://benoit-prieur.fr/tech_articles.html)).
+> ([programmez.com](https://www.programmez.com/magazine/article/pyqt5-developpement-dune-application-de-televersement-dimages-vers-wikimedia-commons)).
 
 ## Credits and license
 
