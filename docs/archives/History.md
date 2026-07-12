@@ -1,16 +1,14 @@
 # PyCommonist History
 
 GitHub repository: [thepriben/PyCommonist](https://github.com/thepriben/PyCommonist)
-— maintained by **[@thepriben](https://github.com/thepriben)** (Benoît Prieur).
+— maintained by **[@thepriben](https://github.com/thepriben)**.
 
-This page is the authoritative record of **all** historical contributions,
-using the **Wikimedia Commons** usernames (`User:…`) as they were at the time.
+This page is the authoritative record of **all** historical contributions.
 In particular:
 
-- **Romain Behar** ([@romainbar](https://github.com/romainbar) on GitHub,
-  `[@romainbar](https://github.com/romainbar)` on Wikimedia Commons) contributed numerous features
-  between 2021 and 2023 — every one of them is listed below and his commits
-  are preserved as-is in the git history.
+- **[@romainbar](https://github.com/romainbar)** contributed numerous
+  features between 2021 and 2023 — every one of them is listed below and
+  his commits are preserved as-is in the git history.
 - The PyCommonist **logo** was created by
   **[Chabe01](https://commons.wikimedia.org/wiki/User:Chabe01)** (May 2021),
   published on Wikimedia Commons as
@@ -18,13 +16,13 @@ In particular:
   under CC BY-SA 4.0.
 
 The project is also the subject of a magazine article (in French):
-Benoît Prieur, *PyQt5 : développement d'une application de téléversement
+*PyQt5 : développement d'une application de téléversement
 d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
 ([programmez.com](https://www.programmez.com/magazine/article/pyqt5-developpement-dune-application-de-televersement-dimages-vers-wikimedia-commons)).
 
 ---
 
-* July 2026: [@thepriben](https://github.com/thepriben) / User:Benoît Prieur — v1.2
+* July 2026: [@thepriben](https://github.com/thepriben) — v1.2
   * hardened Commons API client (`core/commons_api.py`): descriptive
     User-Agent, explicit timeouts on every request, `assert=user` on
     authenticated calls, bot-password (`action=login`) support, no
@@ -36,7 +34,7 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * fixed a crash when closing the application with open sessions
   * user interface and all documentation translated to English
   * offscreen smoke test (`scripts/smoke_test.py`)
-* June 2026: [@thepriben](https://github.com/thepriben) / User:Benoît Prieur — v1.1, major overhaul
+* June 2026: [@thepriben](https://github.com/thepriben) — v1.1, major overhaul
   * PyPI package `pycommonist` (`src/` layout, `pyproject.toml`)
   * `QMainWindow` main window with centralized credentials
   * upload sessions as MDI sub-windows (`QMdiArea`)
@@ -46,9 +44,9 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * refactored upload service (`UploadService`, injected wikitext builders, logging)
   * source archive **`pycommonist-v1.1.zip`** (same convention as `pycommonist-v1.0`)
   * archive documents in `docs/archives/`, `codemeta.json` metadata
-* 4 September 2024: User:Benoît Prieur
+* 4 September 2024: [@thepriben](https://github.com/thepriben)
   * updated `requirements.txt` (PyQt6 and dependencies)
-* July 2023: User:Benoît Prieur
+* July 2023: [@thepriben](https://github.com/thepriben)
   * migration from PyQt5 to PyQt6
 * 16 February 2023: [@romainbar](https://github.com/romainbar)
   * image context menu: option to edit the image in Gimp
@@ -70,10 +68,10 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * image context menu: option to remove the image from the list
 * 29 May 2022: [@romainbar](https://github.com/romainbar)
   * display of the image in Preview (macOS) by clicking on it
-* 29 May 2022: User:Benoît Prieur
+* 29 May 2022: [@thepriben](https://github.com/thepriben)
   * more PEP8 work
   * check that the file name is not already in use (locally and on Wikimedia Commons)
-* 28 May 2022: User:Benoît Prieur
+* 28 May 2022: [@thepriben](https://github.com/thepriben)
   * PEP8 formatting pass (pylint under VS Code)
   * added a PyCommonist version number
   * wider autocompletion popup
@@ -103,10 +101,10 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * support for addresses copied from OSM
   * if the default categories box is empty, the line is not created on the page
   * language code added for the description
-* 2 May 2021: User:Benoît Prieur
+* 2 May 2021: [@thepriben](https://github.com/thepriben)
   * category auto-suggestion (idea by [@romainbar](https://github.com/romainbar), thanks to him)
-* 20 April 2021: User:Benoît Prieur
+* 20 April 2021: [@thepriben](https://github.com/thepriben)
   * external configuration file (largely inspired by code from User:Deansfa, thanks to him)
-* January 2021: User:Benoît Prieur
+* January 2021: [@thepriben](https://github.com/thepriben)
   * initial versions of PyCommonist (PyQt5), described in the
     Programmez! n°246 article

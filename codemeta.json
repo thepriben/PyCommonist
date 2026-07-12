@@ -6,35 +6,41 @@
   "version": "1.2.0",
   "applicationCategory": "Multimedia",
   "operatingSystem": "macOS, Linux, Windows",
-  "programmingLanguage": ["Python"],
+  "programmingLanguage": [
+    "Python"
+  ],
   "license": "https://spdx.org/licenses/MIT",
   "author": [
     {
       "@type": "Person",
-      "givenName": "Benoît",
-      "familyName": "Prieur",
-      "alternateName": "thepriben",
+      "name": "thepriben",
       "url": "https://github.com/thepriben"
     }
   ],
   "contributor": [
     {
       "@type": "Person",
-      "givenName": "Romain",
-      "familyName": "Behar"
+      "name": "romainbar",
+      "url": "https://github.com/romainbar"
     }
   ],
   "referencePublication": {
     "@type": "ScholarlyArticle",
     "name": "PyQt5 : développement d'une application de téléversement d'images vers Wikimedia Commons",
-    "author": "Benoît Prieur",
     "datePublished": "2021",
     "isPartOf": "Programmez! n°246, pp. 33-39",
     "url": "https://www.programmez.com/magazine/article/pyqt5-developpement-dune-application-de-televersement-dimages-vers-wikimedia-commons"
   },
   "codeRepository": "https://github.com/thepriben/PyCommonist",
   "downloadUrl": "https://github.com/thepriben/PyCommonist/releases",
-  "keywords": ["Wikimedia Commons", "batch upload", "PyQt6", "Commonist", "GLAM", "Artwork"],
+  "keywords": [
+    "Wikimedia Commons",
+    "batch upload",
+    "PyQt6",
+    "Commonist",
+    "GLAM",
+    "Artwork"
+  ],
   "developmentStatus": "inactive",
   "issueTracker": "https://github.com/thepriben/PyCommonist/issues"
 }

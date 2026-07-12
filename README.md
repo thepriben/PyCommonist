@@ -84,14 +84,14 @@ in [`docs/archives/History.md`](docs/archives/History.md).
 
 PyCommonist is the subject of a magazine article (in French):
 
-> Benoît Prieur, *PyQt5 : développement d'une application de téléversement
+> *PyQt5 : développement d'une application de téléversement
 > d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
 > ([programmez.com](https://www.programmez.com/magazine/article/pyqt5-developpement-dune-application-de-televersement-dimages-vers-wikimedia-commons)).
 
 ## Credits and license
 
 MIT — see [LICENSE](LICENSE). Maintained by
-[@thepriben](https://github.com/thepriben) (Benoît Prieur).
+[@thepriben](https://github.com/thepriben).
 
 - Logo by **[Chabe01](https://commons.wikimedia.org/wiki/User:Chabe01)**
   (May 2021),
