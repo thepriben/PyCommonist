@@ -1,6 +1,6 @@
 """Application constants and UI strings."""
 
-PYCOMMONIST_VERSION = "1.2.0"
+PYCOMMONIST_VERSION = "1.2.1"
 
 VERTICAL_TOP_SIZE = 500
 VERTICAL_BOTTOM_SIZE = 500

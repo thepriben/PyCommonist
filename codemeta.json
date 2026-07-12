@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "name": "PyCommonist",
   "description": "Desktop application for batch-uploading images and media to Wikimedia Commons, inspired by Commonist. PyQt6, MDI import sessions, Information and Artwork wikitext templates.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "applicationCategory": "Multimedia",
   "operatingSystem": "macOS, Linux, Windows",
   "programmingLanguage": [
