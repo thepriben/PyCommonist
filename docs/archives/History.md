@@ -7,9 +7,10 @@ This page is the authoritative record of **all** historical contributions,
 using the **Wikimedia Commons** usernames (`User:…`) as they were at the time.
 In particular:
 
-- **Romain Behar** (`User:Romainbar`, `romainbar` in the git history)
-  contributed numerous features between 2021 and 2023 — every one of them is
-  listed below and his commits are preserved as-is in the git history.
+- **Romain Behar** ([@romainbar](https://github.com/romainbar) on GitHub,
+  `[@romainbar](https://github.com/romainbar)` on Wikimedia Commons) contributed numerous features
+  between 2021 and 2023 — every one of them is listed below and his commits
+  are preserved as-is in the git history.
 - The PyCommonist **logo** was created by
   **[Chabe01](https://commons.wikimedia.org/wiki/User:Chabe01)** (May 2021),
   published on Wikimedia Commons as
@@ -49,25 +50,25 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * updated `requirements.txt` (PyQt6 and dependencies)
 * July 2023: User:Benoît Prieur
   * migration from PyQt5 to PyQt6
-* 16 February 2023: User:Romainbar
+* 16 February 2023: [@romainbar](https://github.com/romainbar)
   * image context menu: option to edit the image in Gimp
-* 15 February 2023: User:Romainbar
+* 15 February 2023: [@romainbar](https://github.com/romainbar)
   * display of the image size in megabytes (after the date)
-* 17 November 2022: User:Romainbar
+* 17 November 2022: [@romainbar](https://github.com/romainbar)
   * OGV video format support
-* 14 October 2022: User:Romainbar
+* 14 October 2022: [@romainbar](https://github.com/romainbar)
   * button to open the geographic location in OpenStreetMap, and button to clear it
-* 22 August 2022: User:Romainbar
+* 22 August 2022: [@romainbar](https://github.com/romainbar)
   * new per-image input: additional templates, e.g. for `{{Palissy|type=|}}`
-* 23 July 2022: User:Romainbar
+* 23 July 2022: [@romainbar](https://github.com/romainbar)
   * image context menu: option to move the image to the trash
-* 19 June 2022: User:Romainbar
+* 19 June 2022: [@romainbar](https://github.com/romainbar)
   * template support in the category list
-* 10 June 2022: User:Romainbar
+* 10 June 2022: [@romainbar](https://github.com/romainbar)
   * image count added to the sort button
-* 6 June 2022: User:Romainbar
+* 6 June 2022: [@romainbar](https://github.com/romainbar)
   * image context menu: option to remove the image from the list
-* 29 May 2022: User:Romainbar
+* 29 May 2022: [@romainbar](https://github.com/romainbar)
   * display of the image in Preview (macOS) by clicking on it
 * 29 May 2022: User:Benoît Prieur
   * more PEP8 work
@@ -76,34 +77,34 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * PEP8 formatting pass (pylint under VS Code)
   * added a PyCommonist version number
   * wider autocompletion popup
-* 10 May 2022: User:Romainbar
+* 10 May 2022: [@romainbar](https://github.com/romainbar)
   * number of images ready for upload displayed in the import button
-* 6 December 2021: User:Romainbar
+* 6 December 2021: [@romainbar](https://github.com/romainbar)
   * display of the number of images processed during upload
-* 13 June 2021: User:Romainbar
+* 13 June 2021: [@romainbar](https://github.com/romainbar)
   * confirmation dialog before upload when a description or category is empty
   * successfully uploaded images are unchecked
-* 12 June 2021: User:Romainbar
+* 12 June 2021: [@romainbar](https://github.com/romainbar)
   * button to copy and paste name, description and categories from one image to another
   * option to automatically increment the last number contained in the name
-* 2 June 2021: User:Romainbar
+* 2 June 2021: [@romainbar](https://github.com/romainbar)
   * button to reload the image list from the last selected folder
-* 31 May 2021: User:Romainbar
+* 31 May 2021: [@romainbar](https://github.com/romainbar)
   * correct display of the total of successful and failed uploads
 * 21 May 2021: Chabe01
   * new PyCommonist logo
     ([File:Logo PyCommonist.svg](https://commons.wikimedia.org/wiki/File:Logo_PyCommonist.svg),
     CC BY-SA 4.0)
-* 14 May 2021: User:Romainbar
+* 14 May 2021: [@romainbar](https://github.com/romainbar)
   * button to toggle the image sort order, between file name (default) and EXIF date
   * import checkboxes turned into buttons and moved to the right frame
   * import checkbox automatically set to True when the image name is changed
-* 12 May 2021: User:Romainbar
+* 12 May 2021: [@romainbar](https://github.com/romainbar)
   * support for addresses copied from OSM
   * if the default categories box is empty, the line is not created on the page
   * language code added for the description
 * 2 May 2021: User:Benoît Prieur
-  * category auto-suggestion (idea by User:Romainbar, thanks to him)
+  * category auto-suggestion (idea by [@romainbar](https://github.com/romainbar), thanks to him)
 * 20 April 2021: User:Benoît Prieur
   * external configuration file (largely inspired by code from User:Deansfa, thanks to him)
 * January 2021: User:Benoît Prieur
