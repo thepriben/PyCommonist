@@ -4,11 +4,19 @@ import re
 
 
 def format_location(element) -> str:
-    location = element.lineEditLocation.text()
+    """Build {{Location dec|lat|long}} from the location field.
+
+    Accepts "lat|long" as well as values pasted from OpenStreetMap
+    ("lat, long"). Any legacy "heading:…" part is dropped.
+    """
+    location = element.lineEditLocation.text().strip()
     if location == '':
         return ''
-    location = location.replace(",", "|")
-    return '{{Location dec|' + location + '}}\n'
+    parts = [p.strip() for p in location.replace(",", "|").split("|")]
+    parts = [p for p in parts if p and not p.lower().startswith("heading:")]
+    if len(parts) < 2:
+        return ''
+    return '{{Location dec|' + parts[0] + '|' + parts[1] + '}}\n'
 
 
 def format_categories(session, element) -> str:

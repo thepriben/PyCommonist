@@ -46,7 +46,7 @@ class FakeField:
 
 class FakeElement:
     def __init__(self):
-        self.lineEditLocation = FakeField("45.9|5.3|heading:12")
+        self.lineEditLocation = FakeField("45.912345|5.312345")
         self.line_edit_description = FakeField(" — extra detail")
         self.line_edit_categories = FakeField("Montluel")
         self.line_edit_templates = FakeField("{{Palissy|type=|}}")
@@ -88,7 +88,7 @@ def test_wikitext_builders():
     check("Information categories merged",
           "[[Category:Churches in Ain]]" in info and "[[Category:Montluel]]" in info)
     check("PyCommonist tracking category", "[[Category:Uploaded with PyCommonist]]" in info)
-    check("Location template", "{{Location dec|45.9|5.3|heading:12}}" in info)
+    check("Location template", "{{Location dec|45.912345|5.312345}}" in info)
     check("Additional templates kept", "{{Palissy|type=|}}" in info)
     check("License header", "{{self|cc-zero}}" in info)
 
@@ -98,6 +98,26 @@ def test_wikitext_builders():
     check("Artwork wikidata field", "|wikidata = Q12345" in art)
     check("Artwork institution field", "|institution = Musée de Brou" in art)
     check("Artwork date falls back to EXIF", "|date = 2021-05-12 10:00:00" in art)
+
+
+def test_location_formats():
+    from pycommonist.core.wikitext.base import format_location
+
+    class El:
+        def __init__(self, value):
+            self.lineEditLocation = FakeField(value)
+
+    check("Location: pipe format",
+          format_location(El("45.9|5.3")) == "{{Location dec|45.9|5.3}}\n")
+    check("Location: OSM comma paste",
+          format_location(El("45.9, 5.3")) == "{{Location dec|45.9|5.3}}\n")
+    check("Location: negative coordinates",
+          format_location(El("-12.5|-38.5")) == "{{Location dec|-12.5|-38.5}}\n")
+    check("Location: legacy heading dropped",
+          format_location(El("45.9|5.3|heading:321.2602234002272"))
+          == "{{Location dec|45.9|5.3}}\n")
+    check("Location: empty gives nothing", format_location(El("")) == "")
+    check("Location: single value gives nothing", format_location(El("45.9")) == "")
 
 
 def test_commons_api_module():
@@ -150,6 +170,7 @@ def main():
     print("PyCommonist offscreen smoke test")
     print("=" * 40)
     test_wikitext_builders()
+    test_location_formats()
     test_commons_api_module()
     test_gui()
     print("=" * 40)

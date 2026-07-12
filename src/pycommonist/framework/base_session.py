@@ -579,9 +579,10 @@ class BaseImportSession(QWidget):
             if current_exif_image.lat is None or current_exif_image.long is None:
                 line_edit_location.setText('')
             else:
+                # {{Location dec}} format: decimal degrees, pipe-separated,
+                # negative for south/west. 6 decimals ≈ 0.1 m precision.
                 line_edit_location.setText(
-                    f"{current_exif_image.lat}|{current_exif_image.long}"
-                    f"|heading:{current_exif_image.heading}"
+                    f"{current_exif_image.lat:.6f}|{current_exif_image.long:.6f}"
                 )
             local_widget.lineEditLocation = line_edit_location
             btn_clear_location = QPushButton("")
