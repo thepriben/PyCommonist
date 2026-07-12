@@ -27,11 +27,20 @@ cd PyCommonist
 ```
 
 `run.sh` creates a virtual environment with **Python 3.10–3.12** if needed
-(PyQt6 is unstable with Python 3.14 on macOS). Or manually:
+(PyQt6 has no stable wheels for Python 3.14 on macOS) and repairs it
+automatically if it becomes unhealthy.
+
+The venv is created in `~/.venvs/pycommonist`, **outside the repository**:
+if the repository lives in an iCloud-synced folder (Desktop, Documents),
+iCloud silently evicts files inside a local `.venv` and corrupts the Qt
+plugins (`Could not find the Qt platform plugin "cocoa"`). Override the
+location with the `PYCOMMONIST_VENV` environment variable if needed.
+
+Or manually:
 
 ```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
+python3.12 -m venv ~/.venvs/pycommonist
+source ~/.venvs/pycommonist/bin/activate
 pip install -r requirements.txt
 pip install -e .
 python main.py

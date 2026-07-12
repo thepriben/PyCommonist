@@ -97,18 +97,8 @@ class MainWindow(QMainWindow):
         toggle_action.setToolTip("Show / hide password")
         toggle_action.triggered.connect(self._toggle_password_visibility)
 
-        hint = QLabel(
-            'Tip: with two-factor authentication, use a '
-            '<a href="https://commons.wikimedia.org/wiki/Special:BotPasswords">'
-            'bot password</a>. Credentials are only sent to '
-            'commons.wikimedia.org over HTTPS and are never stored.'
-        )
-        hint.setObjectName("authHint")
-        hint.setOpenExternalLinks(True)
-
         layout.addRow("Username:", self.line_edit_user_name)
         layout.addRow("Password:", self.line_edit_password)
-        layout.addRow("", hint)
         return auth_widget
 
     def _toggle_password_visibility(self):
