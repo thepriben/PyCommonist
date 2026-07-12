@@ -7,7 +7,7 @@ Desktop application (Python / PyQt6) for batch-uploading images and media to
 Version **1.2** — main window, MDI upload sessions, `{{Information}}` and
 `{{Artwork}}` wikitext templates, hardened Commons API client.
 
-![PyCommonist logo](img/PyCommonist.png)
+![PyCommonist logo](https://raw.githubusercontent.com/thepriben/PyCommonist/main/img/PyCommonist.png)
 
 ## Installation
 
@@ -49,7 +49,7 @@ python main.py
    tick **Import**, and start the upload.
 
 Default field values can be adjusted in
-[`src/pycommonist/resources/config/general.yaml`](src/pycommonist/resources/config/general.yaml).
+[`src/pycommonist/resources/config/general.yaml`](https://github.com/thepriben/PyCommonist/blob/main/src/pycommonist/resources/config/general.yaml).
 
 ### Security
 
@@ -80,7 +80,7 @@ QT_QPA_PLATFORM=offscreen .venv/bin/python scripts/smoke_test.py
 ## History
 
 The project history — including all historical contributions — is maintained
-in [`docs/archives/History.md`](docs/archives/History.md).
+in [`docs/archives/History.md`](https://github.com/thepriben/PyCommonist/blob/main/docs/archives/History.md).
 
 PyCommonist is the subject of a magazine article (in French):
 
@@ -90,7 +90,7 @@ PyCommonist is the subject of a magazine article (in French):
 
 ## Credits and license
 
-MIT — see [LICENSE](LICENSE). Maintained by
+MIT — see [LICENSE](https://github.com/thepriben/PyCommonist/blob/main/LICENSE). Maintained by
 [@thepriben](https://github.com/thepriben).
 
 - Logo by **[Chabe01](https://commons.wikimedia.org/wiki/User:Chabe01)**

@@ -3,7 +3,6 @@
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QFormLayout,
-    QHBoxLayout,
     QLabel,
     QLineEdit,
     QMainWindow,
