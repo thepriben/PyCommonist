@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycommonist"
-version = "1.1.0"
+version = "1.2.0"
 description = "Batch upload images to Wikimedia Commons (PyQt6, inspired by Commonist)"
 readme = "README.md"
 license = "MIT"

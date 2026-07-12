@@ -77,6 +77,10 @@ AUTH_BAR_STYLE = """
     border-radius: 6px;
     margin: 0 0 6px 0;
 }
+#authHint {
+    color: #71717a;
+    font-size: 11px;
+}
 """
 
 WELCOME_STYLE = """

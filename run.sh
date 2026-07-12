@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Launch PyCommonist (Python 3.10–3.12 ; éviter 3.14 avec PyQt6 sur macOS).
+# Launch PyCommonist (Python 3.10-3.12; avoid 3.14 with PyQt6 on macOS).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"

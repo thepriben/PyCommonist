@@ -1,10 +1,10 @@
 left_frame:
-    username:   "Username"
+    username:   ""
     source:     "{{own}}"
-    author:     "Author"
-    categories: "July 2022 in Ain|2022 in Montluel"
+    author:     ""
+    categories: ""
     license:    "{{self|cc-zero}}"
-    language:   "fr"
+    language:   "en"
 
 right_frame:
     default_image_sort:   "file_name"

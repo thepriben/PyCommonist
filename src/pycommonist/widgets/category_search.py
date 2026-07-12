@@ -1,9 +1,9 @@
 """Commons category prefix search autocomplete."""
 
 import json
+from urllib.parse import quote
 
 from PyQt6.QtCore import QEvent, QMetaObject, QObject, QPoint, Qt, QTimer, QUrl
-from PyQt6.QtGui import QPalette
 from PyQt6.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt6.QtWidgets import (
     QAbstractItemView,
@@ -13,6 +13,7 @@ from PyQt6.QtWidgets import (
     QTreeWidgetItem,
 )
 
+from pycommonist.core.commons_api import USER_AGENT
 from pycommonist.core.constants import WIDTH_WIDGET_RIGHT
 
 
@@ -96,20 +97,30 @@ class SuggestCompletion(QObject):
             QMetaObject.invokeMethod(self.editor, 'returnPressed')
 
     def auto_suggest(self):
-        text = self.editor.text()
+        text = self.editor.text().strip()
+        if not text:
+            return
         req = (
             "https://commons.wikimedia.org/w/api.php?action=query"
-            "&list=prefixsearch&format=json&pssearch=Category:" + text
+            "&list=prefixsearch&format=json&pssearch="
+            + quote("Category:" + text)
         )
-        self.network_manager.get(QNetworkRequest(QUrl(req)))
+        request = QNetworkRequest(QUrl(req))
+        request.setHeader(
+            QNetworkRequest.KnownHeaders.UserAgentHeader, USER_AGENT
+        )
+        self.network_manager.get(request)
 
     def handle_network_data(self, network_reply):
         choices = []
         if network_reply.error() == QNetworkReply.NetworkError.NoError:
-            data = json.loads(network_reply.readAll().data())
-            for location in data['query']['prefixsearch']:
-                choice = location['title']
-                choices.append(choice.replace("Category:", ""))
+            try:
+                data = json.loads(network_reply.readAll().data())
+                for location in data['query']['prefixsearch']:
+                    choice = location['title']
+                    choices.append(choice.replace("Category:", ""))
+            except (ValueError, KeyError):
+                choices = []
             self.show_completion(choices)
         network_reply.deleteLater()
 

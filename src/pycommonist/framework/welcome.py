@@ -17,10 +17,10 @@ class WelcomePage(QWidget):
         title.setObjectName("welcomeTitle")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         hint = QLabel(
-            "Utilisez le menu\n"
-            "Fichier → Nouvelle session\n"
-            "puis choisissez un modèle Wikimedia :\n"
-            "{{Information}} (description) ou {{Artwork}} (œuvre)."
+            "Use the menu\n"
+            "File → New session\n"
+            "then pick a Wikimedia template:\n"
+            "{{Information}} (description) or {{Artwork}} (artwork)."
         )
         hint.setObjectName("welcomeHint")
         hint.setAlignment(Qt.AlignmentFlag.AlignCenter)

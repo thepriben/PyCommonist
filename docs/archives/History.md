@@ -1,76 +1,105 @@
-# Historique PyCommonist
+# PyCommonist History
 
-Dépôt GitHub : [thepriben/PyCommonist](https://github.com/thepriben/PyCommonist) — maintenu par **[@thepriben](https://github.com/thepriben)** (Benoît Prieur).
+GitHub repository: [thepriben/PyCommonist](https://github.com/thepriben/PyCommonist)
+— maintained by **[@thepriben](https://github.com/thepriben)** (Benoît Prieur).
 
-Les entrées ci-dessous utilisent les identifiants **Wikimedia Commons** (`User:…`) tels qu’au moment des contributions. **Romain Behar** (`User:Romainbar` / `romainbar` dans l’historique git) n’est pas modifié.
+The git history is kept under the single maintainer identity `thepriben`.
+This page is the authoritative record of **all** historical contributions,
+using the **Wikimedia Commons** usernames (`User:…`) as they were at the time.
+In particular:
+
+- **Romain Behar** (`User:Romainbar`) contributed numerous features between
+  2021 and 2023 — every one of them is listed below.
+- The PyCommonist **logo** was created by **Chabe01** (May 2021).
+
+The project is also the subject of a magazine article (in French):
+Benoît Prieur, *PyQt5 : développement d'une application de téléversement
+d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
+([programmez.com](https://www.programmez.com/magazine/article/pyqt5-developpement-dune-application-de-televersement-dimages-vers-wikimedia-commons)).
 
 ---
 
-* juin 2026 : [@thepriben](https://github.com/thepriben) (GitHub) / User:Benoît Prieur — v1.1, refonte majeure
-  * package PyPI `pycommonist` (structure `src/`, `pyproject.toml`)
-  * fenêtre principale `QMainWindow` avec identifiants centralisés
-  * sessions d'import en sous-fenêtres MDI (`QMdiArea`)
-  * types de session intégrés : **Information (Description)** (`{{Information}}`) et **Artwork** (`{{Artwork}}`)
-  * mini-framework PyQt6 (`framework/`, `sessions/`, `core/wikitext/`)
-  * service d'upload refactoré (`UploadService`, builders wikitext injectés, logging)
-  * archive source **`pycommonist-v1.1.zip`** pour HAL Software Archive (même convention que `pycommonist-v1.0`)
-  * documents d’archive dans `docs/archives/` (History, notes de release, checklist HAL)
-  * `codemeta.json` pour métadonnées HAL / CodeMeta
-* 4 septembre 2024 : User:Benoît Prieur
-  * mise à jour de `requirements.txt` (PyQt6 et dépendances)
-* 20 avril 2021 : User:Benoît Prieur
-  * ajout d'un fichier externe de configuration (largement inspiré par le code de User:Deansfa, merci à lui).
-* 2 mai 2021 : User:Benoît Prieur
-  * ajout d'une auto-suggestion des catégories (idée de User:Romainbar, merci à lui).
-* 12 mai 2021 : User:Romainbar
-  * support des adresses copiées depuis OSM
-  * si la case des catégories par défaut est vide, la ligne n'est pas créée dans la page
-  * ajout du code langue pour la description
-* 14 mai 2021 : User:Romainbar
-  * bouton pour modifier l'ordre de tri des images, entre nom de fichier (par défaut) et date Exif
-  * transformation des cases à cocher en boutons pour les images à importer, et déplacement dans la frame de droite
-  * case à cocher Import automatiquement à True quand on modifie le nom de l'image
-* 31 mai 2021 : User:Romainbar
-  * affichage du bon total des uploads réussis et ratés
-* 2 juin 2021 : User:Romainbar
-  * bouton pour recharger la liste des images à partir du dernier dossier sélectionné
-* 12 juin 2021 : User:Romainbar
-  * bouton pour copier et coller les nom, description et catégories d'une image à l'autre
-  * possibilité d'incrémenter automatiquement le dernier numéro contenu dans le nom
-* 13 juin 2021 : User:Romainbar
-  * dialogue de confirmation d'upload quand aucune description ou aucune catégorie n'est entrée
-  * décochage des images uploadées avec succès
-* 6 décembre 2021 : User:Romainbar
-  * affichage du nombre d'images traitées pendant l'upload
-* 10 mai 2022 : User:Romainbar
-  * affichage du nombre d'images prêtes à être importées dans le bouton d'import
-* 28 mai 2022 : User:Benoît Prieur
-  * reprise de la mise en forme selon PEP8 (pas parfait encore, pylint sous VS Code)
-  * ajout d'une version de PyCommonist
-  * augmentation de la largeur de l'auto-complétion
-* 29 mai 2022 : User:Benoît Prieur
-  * suite PEP8
-  * contrôle de la non-utilisation du nom de fichier (localement et distant, sur Wikimedia Commons)
-* 29 mai 2022 : User:Romainbar
-  * affichage de l'image dans Preview (macOS) en cliquant dessus
-* 6 juin 2022 : User:Romainbar
-  * menu contextuel d'une image: option pour la supprimer de la liste
-* 10 juin 2022 : User:Romainbar
-  * ajout du nombre d'images dans le bouton de tri
-* 19 juin 2022 : User:Romainbar
-  * support des templates dans la liste des catégories
-* 23 juillet 2022 : User:Romainbar
-  * menu contextuel d'une image: option pour la déplacer dans la corbeille
-* 22 août 2022 : User:Romainbar
-  * nouvelle case de saisie pour les images: modèles additionnels, par exemple pour {{Palissy|type=|}}
-* 14 octobre 2022 : User:Romainbar
-  * bouton pour ouvrir la localisation géographique dans OpenStreetMap et bouton pour l'effacer
-* 17 novembre 2022 : User:Romainbar
-  * ajout du format vidéo OGV
-* 15 février 2023 : User:Romainbar
-  * affichage de la taille de l'image en mégabytes (après la date)
-* 16 février 2023 : User:Romainbar
-  * menu contextuel d'une image: option pour éditer dans Gimp
-* Juillet 2023 : User:Benoît Prieur
-  * migration de PyQt5 à PyQt6
-
+* July 2026: [@thepriben](https://github.com/thepriben) / User:Benoît Prieur — v1.2
+  * hardened Commons API client (`core/commons_api.py`): descriptive
+    User-Agent, explicit timeouts on every request, `assert=user` on
+    authenticated calls, bot-password (`action=login`) support, no
+    credentials or tokens in the logs
+  * clear sign-in error messages (including a two-factor / bot-password hint)
+  * show/hide password toggle and security hint in the auth panel
+  * filename-existence check switched to the Commons API
+  * URL-encoded category autocompletion queries
+  * fixed a crash when closing the application with open sessions
+  * user interface and all documentation translated to English
+  * offscreen smoke test (`scripts/smoke_test.py`)
+* June 2026: [@thepriben](https://github.com/thepriben) / User:Benoît Prieur — v1.1, major overhaul
+  * PyPI package `pycommonist` (`src/` layout, `pyproject.toml`)
+  * `QMainWindow` main window with centralized credentials
+  * upload sessions as MDI sub-windows (`QMdiArea`)
+  * built-in session types: **Information (Description)** (`{{Information}}`)
+    and **Artwork** (`{{Artwork}}`)
+  * small PyQt6 framework (`framework/`, `sessions/`, `core/wikitext/`)
+  * refactored upload service (`UploadService`, injected wikitext builders, logging)
+  * source archive **`pycommonist-v1.1.zip`** (same convention as `pycommonist-v1.0`)
+  * archive documents in `docs/archives/`, `codemeta.json` metadata
+* 4 September 2024: User:Benoît Prieur
+  * updated `requirements.txt` (PyQt6 and dependencies)
+* July 2023: User:Benoît Prieur
+  * migration from PyQt5 to PyQt6
+* 16 February 2023: User:Romainbar
+  * image context menu: option to edit the image in Gimp
+* 15 February 2023: User:Romainbar
+  * display of the image size in megabytes (after the date)
+* 17 November 2022: User:Romainbar
+  * OGV video format support
+* 14 October 2022: User:Romainbar
+  * button to open the geographic location in OpenStreetMap, and button to clear it
+* 22 August 2022: User:Romainbar
+  * new per-image input: additional templates, e.g. for `{{Palissy|type=|}}`
+* 23 July 2022: User:Romainbar
+  * image context menu: option to move the image to the trash
+* 19 June 2022: User:Romainbar
+  * template support in the category list
+* 10 June 2022: User:Romainbar
+  * image count added to the sort button
+* 6 June 2022: User:Romainbar
+  * image context menu: option to remove the image from the list
+* 29 May 2022: User:Romainbar
+  * display of the image in Preview (macOS) by clicking on it
+* 29 May 2022: User:Benoît Prieur
+  * more PEP8 work
+  * check that the file name is not already in use (locally and on Wikimedia Commons)
+* 28 May 2022: User:Benoît Prieur
+  * PEP8 formatting pass (pylint under VS Code)
+  * added a PyCommonist version number
+  * wider autocompletion popup
+* 10 May 2022: User:Romainbar
+  * number of images ready for upload displayed in the import button
+* 6 December 2021: User:Romainbar
+  * display of the number of images processed during upload
+* 13 June 2021: User:Romainbar
+  * confirmation dialog before upload when a description or category is empty
+  * successfully uploaded images are unchecked
+* 12 June 2021: User:Romainbar
+  * button to copy and paste name, description and categories from one image to another
+  * option to automatically increment the last number contained in the name
+* 2 June 2021: User:Romainbar
+  * button to reload the image list from the last selected folder
+* 31 May 2021: User:Romainbar
+  * correct display of the total of successful and failed uploads
+* 21 May 2021: Chabe01
+  * new PyCommonist logo
+* 14 May 2021: User:Romainbar
+  * button to toggle the image sort order, between file name (default) and EXIF date
+  * import checkboxes turned into buttons and moved to the right frame
+  * import checkbox automatically set to True when the image name is changed
+* 12 May 2021: User:Romainbar
+  * support for addresses copied from OSM
+  * if the default categories box is empty, the line is not created on the page
+  * language code added for the description
+* 2 May 2021: User:Benoît Prieur
+  * category auto-suggestion (idea by User:Romainbar, thanks to him)
+* 20 April 2021: User:Benoît Prieur
+  * external configuration file (largely inspired by code from User:Deansfa, thanks to him)
+* January 2021: User:Benoît Prieur
+  * initial versions of PyCommonist (PyQt5), described in the
+    Programmez! n°246 article

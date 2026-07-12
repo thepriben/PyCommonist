@@ -6,6 +6,7 @@ import traceback
 
 from PyQt6.QtCore import QObject, QTimer, pyqtSlot
 
+from pycommonist.core.commons_api import UPLOAD_TIMEOUT, fetch_csrf_token
 from pycommonist.core.constants import URL
 
 logger = logging.getLogger(__name__)
@@ -32,14 +33,12 @@ class UploadWorker(QObject):
         real_file_name = element.lbl_real_file_name.text()
         file_path = path + '/' + real_file_name
         try:
-            query_tokens_params = {
-                "action": "query",
-                "meta": "tokens",
-                "format": "json",
-            }
-            http_ret = self.http_session.get(url=URL, params=query_tokens_params)
-            logger.debug("CSRF token response: %s", http_ret.json())
-            csrf_token = http_ret.json()["query"]["tokens"]["csrftoken"]
+            csrf_token = fetch_csrf_token(self.http_session)
+            if csrf_token is None:
+                element.lbl_upload_result.setText("FAILED (no CSRF token)")
+                widget.set_upload_status(False)
+                self._run_next_thread()
+                return
 
             if not os.path.isfile(file_path):
                 element.lbl_upload_result.setText("FAILED")
@@ -68,21 +67,28 @@ class UploadWorker(QObject):
                 "format": "json",
                 "token": csrf_token,
                 "ignorewarnings": 1,
+                "assert": "user",
                 "comment": "PyCommonist upload: " + file_name,
                 "text": text,
             }
             with open(file_path, 'rb') as f:
                 files = {'file': (file_name, f, 'multipart/form-data')}
-                http_ret = self.http_session.post(URL, files=files, data=params)
-            logger.debug("Upload response: %s", http_ret.json())
+                http_ret = self.http_session.post(
+                    URL, files=files, data=params, timeout=UPLOAD_TIMEOUT
+                )
+            payload = http_ret.json()
 
-            if 'upload' in http_ret.json():
-                result = http_ret.json()['upload']['result']
+            if 'upload' in payload:
+                result = payload['upload']['result']
                 element.lbl_upload_result.setText(result)
                 widget.set_upload_status(True)
                 element.cb_import.setChecked(False)
             else:
-                element.lbl_upload_result.setText("FAILED")
+                error_info = payload.get('error', {}).get('info', '')
+                logger.warning("Upload failed for %s: %s", file_name, error_info)
+                element.lbl_upload_result.setText(
+                    "FAILED" + (f" ({error_info})" if error_info else "")
+                )
                 widget.set_upload_status(False)
                 element.cb_import.setChecked(False)
         except Exception:

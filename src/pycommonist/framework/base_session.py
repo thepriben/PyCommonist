@@ -34,8 +34,10 @@ from PyQt6.QtWidgets import (
 )
 from send2trash import send2trash
 
+from pycommonist.core.commons_api import DEFAULT_TIMEOUT, USER_AGENT
 from pycommonist.core.config import RightFrameConfig
 from pycommonist.core.constants import (
+    URL,
     CHECK_BUTTON_ALL,
     CHECK_BUTTON_NONE,
     HORIZONTAL_LEFT_SIZE,
@@ -357,10 +359,18 @@ class BaseImportSession(QWidget):
         try:
             for file_name in file_names:
                 response = requests.get(
-                    'https://commons.wikimedia.org/wiki/File:' + file_name,
-                    timeout=30,
+                    URL,
+                    params={
+                        "action": "query",
+                        "titles": "File:" + file_name,
+                        "format": "json",
+                    },
+                    headers={"User-Agent": USER_AGENT},
+                    timeout=DEFAULT_TIMEOUT,
                 )
-                if response.status_code == 200:
+                response.raise_for_status()
+                pages = response.json().get("query", {}).get("pages", {})
+                if any(not page_id.startswith("-") for page_id in pages):
                     msg = QMessageBox(self)
                     msg.setWindowTitle('File name already exists on Wikimedia Commons')
                     msg.setText(
@@ -368,8 +378,13 @@ class BaseImportSession(QWidget):
                     )
                     msg.exec()
                     return False
-        except requests.exceptions.RequestException:
+        except (requests.exceptions.RequestException, ValueError):
             logger.exception("Commons filename check failed")
+            msg = QMessageBox(self)
+            msg.setWindowTitle('Network error')
+            msg.setText('Could not verify file names on Wikimedia Commons '
+                        '(network error). Upload aborted.')
+            msg.exec()
             return False
         return True
 

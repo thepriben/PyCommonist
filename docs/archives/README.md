@@ -1,10 +1,12 @@
-# Archives documentaires
+# Documentation archives
 
-Ce dossier regroupe les fichiers Markdown **hors README principal**, conservés pour l’historique du projet et les releases GitHub.
+This folder gathers the Markdown files **other than the main README**, kept
+for the project history and GitHub releases.
 
-| Fichier | Rôle |
-|---------|------|
-| [History.md](History.md) | Journal des contributions (français), depuis 2021 |
-| [RELEASE_v1.1.0.md](RELEASE_v1.1.0.md) | Notes de version 1.1.0 (PyPI, wheel, tag semver) |
+| File | Purpose |
+|------|---------|
+| [History.md](History.md) | Contribution log since 2021 (authoritative record of all historical contributions) |
+| [RELEASE_v1.1.0.md](RELEASE_v1.1.0.md) | Release notes 1.1.0 (PyPI, wheel, semver tag) |
 
-Le README à la racine du dépôt reste le point d’entrée utilisateur ; ces documents ne sont pas supprimés lors des refontes.
+The README at the repository root remains the user entry point; these
+documents are not removed during overhauls.

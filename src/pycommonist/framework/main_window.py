@@ -12,6 +12,7 @@ from PyQt6.QtWidgets import (
     QMenuBar,
     QStackedWidget,
     QStatusBar,
+    QStyle,
     QVBoxLayout,
     QWidget,
 )
@@ -83,22 +84,44 @@ class MainWindow(QMainWindow):
         self.line_edit_user_name = QLineEdit()
         self.line_edit_user_name.setText(LeftFrameConfig.username)
         self.line_edit_user_name.setFixedWidth(WIDTH_WIDGET)
-        self.line_edit_user_name.setPlaceholderText("Nom d'utilisateur Commons")
+        self.line_edit_user_name.setPlaceholderText("Commons username (or User@BotName)")
 
         self.line_edit_password = QLineEdit()
         self.line_edit_password.setFixedWidth(WIDTH_WIDGET)
         self.line_edit_password.setEchoMode(QLineEdit.EchoMode.Password)
-        self.line_edit_password.setPlaceholderText("Mot de passe ou mot de passe de bot")
+        self.line_edit_password.setPlaceholderText("Password or bot password")
+        toggle_action = self.line_edit_password.addAction(
+            self.style().standardIcon(QStyle.StandardPixmap.SP_DialogYesButton),
+            QLineEdit.ActionPosition.TrailingPosition,
+        )
+        toggle_action.setToolTip("Show / hide password")
+        toggle_action.triggered.connect(self._toggle_password_visibility)
 
-        layout.addRow("Identifiant :", self.line_edit_user_name)
-        layout.addRow("Mot de passe :", self.line_edit_password)
+        hint = QLabel(
+            'Tip: with two-factor authentication, use a '
+            '<a href="https://commons.wikimedia.org/wiki/Special:BotPasswords">'
+            'bot password</a>. Credentials are only sent to '
+            'commons.wikimedia.org over HTTPS and are never stored.'
+        )
+        hint.setObjectName("authHint")
+        hint.setOpenExternalLinks(True)
+
+        layout.addRow("Username:", self.line_edit_user_name)
+        layout.addRow("Password:", self.line_edit_password)
+        layout.addRow("", hint)
         return auth_widget
+
+    def _toggle_password_visibility(self):
+        if self.line_edit_password.echoMode() == QLineEdit.EchoMode.Password:
+            self.line_edit_password.setEchoMode(QLineEdit.EchoMode.Normal)
+        else:
+            self.line_edit_password.setEchoMode(QLineEdit.EchoMode.Password)
 
     def _build_menus(self):
         bar = QMenuBar()
 
-        file_menu = bar.addMenu("Fichier")
-        new_menu = QMenu("Nouvelle session", self)
+        file_menu = bar.addMenu("File")
+        new_menu = QMenu("New session", self)
         new_menu.addAction(
             SESSION_MENU_LABELS[SESSION_INFORMATION],
             lambda: self.open_session(SESSION_INFORMATION),
@@ -109,13 +132,13 @@ class MainWindow(QMainWindow):
         )
         file_menu.addMenu(new_menu)
         file_menu.addSeparator()
-        file_menu.addAction("Quitter", self.close)
+        file_menu.addAction("Quit", self.close)
 
-        window_menu = bar.addMenu("Fenêtre")
+        window_menu = bar.addMenu("Window")
         window_menu.addAction("Cascade", self.mdi_area.cascadeSubWindows)
-        window_menu.addAction("Mosaïque", self.mdi_area.tileSubWindows)
+        window_menu.addAction("Tile", self.mdi_area.tileSubWindows)
         window_menu.addSeparator()
-        window_menu.addAction("Fermer la session active", self._close_active_subwindow)
+        window_menu.addAction("Close active session", self._close_active_subwindow)
 
         self.setMenuBar(bar)
 
@@ -145,12 +168,16 @@ class MainWindow(QMainWindow):
         self._show_workspace()
         sub.show()
         sub.showMaximized()
-        self.set_status(f"Session ouverte : {SESSION_MENU_LABELS[session_type]}")
+        self.set_status(f"Session opened: {SESSION_MENU_LABELS[session_type]}")
 
     def _check_sessions_empty(self):
-        if not self.mdi_area.subWindowList():
-            self._show_welcome()
-            self.clear_status()
+        try:
+            if not self.mdi_area.subWindowList():
+                self._show_welcome()
+                self.clear_status()
+        except RuntimeError:
+            # Qt objects already destroyed during application shutdown.
+            pass
 
     def get_credentials(self):
         return (

@@ -3,10 +3,10 @@
 import logging
 import traceback
 
-import requests
 from PyQt6.QtCore import QThread, QTimer
 
-from pycommonist.core.constants import TIMESTAMP_STATUSBAR, URL
+from pycommonist.core.commons_api import create_http_session, login
+from pycommonist.core.constants import TIMESTAMP_STATUSBAR
 from pycommonist.core.upload_worker import UploadWorker
 
 logger = logging.getLogger(__name__)
@@ -18,13 +18,13 @@ class UploadService:
         self.session_widget = None
         self.check_thread_timer = None
 
-    def upload_images(self, session_widget, login: str, password: str):
+    def upload_images(self, session_widget, login_name: str, password: str):
         self.session_widget = session_widget
         try:
             session_widget.main_window.clear_status()
-            if not login:
+            if not login_name:
                 session_widget.btn_import.setEnabled(True)
-                session_widget.main_window.set_status("Login is not filled")
+                session_widget.main_window.set_status("Username is not filled")
                 return
             if not password:
                 session_widget.btn_import.setEnabled(True)
@@ -37,36 +37,12 @@ class UploadService:
 
             session_widget.threads.clear()
             session_widget.workers.clear()
-            self.http_session = requests.Session()
-            logger.debug("HTTP session created")
+            self.http_session = create_http_session()
 
-            params_1 = {
-                "action": "query",
-                "meta": "tokens",
-                "type": "login",
-                "format": "json",
-            }
-            try:
-                http_ret = self.http_session.get(url=URL, params=params_1)
-            except requests.exceptions.RequestException:
-                logger.exception("Login token request failed")
+            ok, message = login(self.http_session, login_name, password)
+            if not ok:
                 session_widget.btn_import.setEnabled(True)
-                return
-
-            login_token = http_ret.json()["query"]["tokens"]["logintoken"]
-            params_2 = {
-                'action': "clientlogin",
-                'username': login,
-                'password': password,
-                'loginreturnurl': URL,
-                'logintoken': login_token,
-                'format': "json",
-            }
-            http_ret = self.http_session.post(URL, data=params_2)
-            logger.debug("Client login response: %s", http_ret.json())
-            if http_ret.json()['clientlogin']['status'] != 'PASS':
-                session_widget.btn_import.setEnabled(True)
-                session_widget.main_window.set_status("Client login failed")
+                session_widget.main_window.set_status(message)
                 return
 
             checked_image_count = sum(

@@ -14,12 +14,12 @@ SESSION_CLASSES = {
 
 SESSION_MENU_LABELS = {
     SESSION_INFORMATION: "Description — {{Information}}",
-    SESSION_ARTWORK: "Œuvre — {{Artwork}}",
+    SESSION_ARTWORK: "Artwork — {{Artwork}}",
 }
 
 SESSION_WINDOW_PREFIX = {
-    SESSION_INFORMATION: "Import · {{Information}}",
-    SESSION_ARTWORK: "Import · {{Artwork}}",
+    SESSION_INFORMATION: "Upload · {{Information}}",
+    SESSION_ARTWORK: "Upload · {{Artwork}}",
 }
 
 
