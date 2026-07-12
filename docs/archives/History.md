@@ -3,14 +3,18 @@
 GitHub repository: [thepriben/PyCommonist](https://github.com/thepriben/PyCommonist)
 — maintained by **[@thepriben](https://github.com/thepriben)** (Benoît Prieur).
 
-The git history is kept under the single maintainer identity `thepriben`.
 This page is the authoritative record of **all** historical contributions,
 using the **Wikimedia Commons** usernames (`User:…`) as they were at the time.
 In particular:
 
-- **Romain Behar** (`User:Romainbar`) contributed numerous features between
-  2021 and 2023 — every one of them is listed below.
-- The PyCommonist **logo** was created by **Chabe01** (May 2021).
+- **Romain Behar** (`User:Romainbar`, `romainbar` in the git history)
+  contributed numerous features between 2021 and 2023 — every one of them is
+  listed below and his commits are preserved as-is in the git history.
+- The PyCommonist **logo** was created by
+  **[Chabe01](https://commons.wikimedia.org/wiki/User:Chabe01)** (May 2021),
+  published on Wikimedia Commons as
+  [File:Logo PyCommonist.svg](https://commons.wikimedia.org/wiki/File:Logo_PyCommonist.svg)
+  under CC BY-SA 4.0.
 
 The project is also the subject of a magazine article (in French):
 Benoît Prieur, *PyQt5 : développement d'une application de téléversement
@@ -88,6 +92,8 @@ d'images vers Wikimedia Commons*, 2021, **Programmez!** n°246, pp. 33–39
   * correct display of the total of successful and failed uploads
 * 21 May 2021: Chabe01
   * new PyCommonist logo
+    ([File:Logo PyCommonist.svg](https://commons.wikimedia.org/wiki/File:Logo_PyCommonist.svg),
+    CC BY-SA 4.0)
 * 14 May 2021: User:Romainbar
   * button to toggle the image sort order, between file name (default) and EXIF date
   * import checkboxes turned into buttons and moved to the right frame
