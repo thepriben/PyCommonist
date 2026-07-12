@@ -93,8 +93,6 @@ PyCommonist is the subject of a magazine article (in French):
 MIT — see [LICENSE](LICENSE). Maintained by
 [@thepriben](https://github.com/thepriben) (Benoît Prieur).
 
-- Historical code contributions by **Romain Behar** (`User:Romainbar`) are
-  recorded in [`docs/archives/History.md`](docs/archives/History.md).
 - Logo by **[Chabe01](https://commons.wikimedia.org/wiki/User:Chabe01)**
   (May 2021),
   [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) —
